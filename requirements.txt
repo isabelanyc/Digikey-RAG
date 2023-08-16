@@ -1,0 +1,3 @@
+digikey-api
+python-dotenv
+dotenv
