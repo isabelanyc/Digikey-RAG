@@ -19,12 +19,7 @@ os.environ['DIGIKEY_CLIENT_SECRET'] = CLIENT_SECRET
 os.environ['DIGIKEY_CLIENT_SANDBOX'] = CLIENT_SANDBOX
 os.environ['DIGIKEY_STORAGE_PATH'] = str(CACHE_DIR)
 
-# Query product number
-api_limit = {}
-dkpn = '296-6501-1-ND'
-part = digikey.product_details(dkpn)
-
 # Search for parts
 search_request = KeywordSearchRequest(keywords='CRCW080510K0FKEA', record_count=10)
-result = digikey.keyword_search(body=search_request, api_limits=api_limit)
+result = digikey.keyword_search(body=search_request)
 print(result)
