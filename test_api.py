@@ -13,12 +13,6 @@ CLIENT_SECRET = os.getenv('DIGIKEY_CLIENT_SECRET')
 CLIENT_SANDBOX = os.getenv('DIGIKEY_CLIENT_SANDBOX')
 CACHE_DIR = Path(os.getenv('DIGIKEY_STORAGE_PATH'))
 
-# Set environment variables
-os.environ['DIGIKEY_CLIENT_ID'] = CLIENT_ID
-os.environ['DIGIKEY_CLIENT_SECRET'] = CLIENT_SECRET
-os.environ['DIGIKEY_CLIENT_SANDBOX'] = CLIENT_SANDBOX
-os.environ['DIGIKEY_STORAGE_PATH'] = str(CACHE_DIR)
-
 # Search for parts
 search_request = KeywordSearchRequest(keywords='CRCW080510K0FKEA', record_count=10)
 result = digikey.keyword_search(body=search_request)
