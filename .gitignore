@@ -162,3 +162,6 @@ cython_debug/
 path/
 /path
 path
+
+# PDF files
+data/*
