@@ -12,7 +12,6 @@ from langchain.vectorstores import Chroma
 # type of loader is the UnstructuredPDFLoader
 loader = DirectoryLoader('data', glob="**/*.pdf", loader_cls=UnstructuredPDFLoader, show_progress=True)
 
-
 # create a text splitter and chunk up the documents
 text_splitter = RecursiveCharacterTextSplitter(
     chunk_size = 10000,
@@ -29,5 +28,11 @@ print(f'Number of docs: {num_docs}')
 load_dotenv()
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 db = Chroma.from_documents(docs, OpenAIEmbeddings())
+
+# test with a similarity search
+query = input("Query: ")
+similar_docs = db.similarity_search(query)
+similar_page_content = [similar_docs[i].page_content for i in range(len(similar_docs))]
+print(similar_docs)
 
 
