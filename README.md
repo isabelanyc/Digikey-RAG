@@ -6,8 +6,9 @@ The Digikey RAG project interacts with the Digikey API to search for electronic 
 
 ## RAG Overview
 <p align="center">
-  <img src="./img/rag.png"  width="850" height="300">
+  <img src="./img/rag.png"  width="850" height="400">
 </p>
+
 Diagram taken from [LlamaIndex webinar](https://www.youtube.com/watch?v=njzB6fm0U8g&t=904s)
 
 ## Features
