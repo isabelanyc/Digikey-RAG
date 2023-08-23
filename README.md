@@ -2,7 +2,7 @@
 _Under Development_
 
 ## Overview
-The Digikey RAG project interacts with the Digikey API to search for electronic components, retrieve datasheets, and manage electronic components.
+The Digikey RAG project aims to leverage the power of LLMs for easier search and queries of electronics parts found on Digikey. 
 
 ## RAG Overview
 <p align="center">
