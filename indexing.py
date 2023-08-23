@@ -13,7 +13,7 @@ try:
             else:
                 print(f"{file_name} is not a PDF file.")
 except Exception as e:
-    print(f"An error occurred: {e}")
+    print(f"Not a PDF: {e}")
 
 # Load the documents
 loaders = []
