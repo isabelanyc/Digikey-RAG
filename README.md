@@ -4,6 +4,12 @@ _Under Development_
 ## Overview
 The Digikey RAG project interacts with the Digikey API to search for electronic components, retrieve datasheets, and manage electronic components.
 
+## RAG Overview
+<p align="center">
+  <img src="./img/rag.png"  width="850" height="300">
+</p>
+Diagram taken from [LlamaIndex webinar](https://www.youtube.com/watch?v=njzB6fm0U8g&t=904s)
+
 ## Features
 - **Search Components**: Search for specific parts using the Digikey API (`test_api.py`).
 - **Retrieve Datasheets**: Download datasheets for various components (`get_datasheets.py`).
