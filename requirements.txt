@@ -2,3 +2,5 @@ digikey-api
 python-dotenv
 dotenv
 requests
+langchain
+openai
