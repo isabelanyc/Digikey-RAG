@@ -1,8 +1,24 @@
-# Digikey-RAG 
+# Digikey-RAG
 _Under Development_
 
+## Overview
+The Digikey RAG project interacts with the Digikey API to search for electronic components, retrieve datasheets, and manage electronic components.
 
-The Digikey RAG project is designed to interact with the Digikey API to search for electronic components, retrieve datasheets, and perform various other tasks related to electronic components management.
+## Features
+- **Search Components**: Search for specific parts using the Digikey API (`test_api.py`).
+- **Retrieve Datasheets**: Download datasheets for various components (`get_datasheets.py`).
+- **Indexing**: Load and index PDFs for efficient search (`indexing.py`).
+- **Querying**: Placeholder for future querying functionality (`querying.py`).
+- **Demo**: A comment hinting at a potential future feature (`demo.py`).
 
-# License
+## Installation
+1. Install the required packages listed in `requirements.txt`.
+2. Set up environment variables for Digikey API credentials.
+
+## Usage
+- **Testing API**: Run `test_api.py` to test the Digikey API.
+- **Get Datasheets**: Run `get_datasheets.py` to download datasheets.
+- **Indexing**: Run `indexing.py` to load and index PDFs.
+
+## License
 This project is licensed under the [MIT License](https://opensource.org/license/mit/).
