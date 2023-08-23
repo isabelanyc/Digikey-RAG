@@ -1,27 +1,33 @@
-from langchain.document_loaders import MathpixPDFLoader
+
 import os
-
-folder_path = 'data'
-file_paths = []
-
-try:
-    for file_name in os.listdir(folder_path):
-        full_path = os.path.join(folder_path, file_name)
-        if os.path.isfile(full_path):
-            if file_name.endswith('.pdf'):
-                file_paths.append(full_path)
-            else:
-                print(f"{file_name} is not a PDF file.")
-except Exception as e:
-    print(f"Not a PDF: {e}")
-
-# Load the documents
-loaders = []
-for path in file_paths:
-    loader = MathpixPDFLoader(path)
-    loaders.append(loader)
+from dotenv import load_dotenv
+from langchain.document_loaders import DirectoryLoader
+from langchain.document_loaders import UnstructuredPDFLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.vectorstores import Chroma
 
 
-# Transform the documents
+# load all the pdfs in the data directory
+# type of loader is the UnstructuredPDFLoader
+loader = DirectoryLoader('data', glob="**/*.pdf", loader_cls=UnstructuredPDFLoader, show_progress=True)
 
-# Use Chroma
+
+# create a text splitter and chunk up the documents
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size = 10000,
+    chunk_overlap  = 1000,
+    length_function = len,
+    add_start_index = True,
+)
+docs = loader.load_and_split(text_splitter)
+
+num_docs = len(docs)
+print(f'Number of docs: {num_docs}')
+
+# Use Chroma to create the embdeddings and create the vector store
+load_dotenv()
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+db = Chroma.from_documents(docs, OpenAIEmbeddings())
+
+
