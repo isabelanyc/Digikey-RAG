@@ -44,7 +44,7 @@ def getDatasheetURLs(keywordSearchResult):
 def getDatasheets(datasheetUrls):
     for url in datasheetUrls:
         if url and url.startswith(('http://', 'https://')):
-            destination_path = 'data/' + url.split('/')[-1]
+            destination_path = 'data/pdf' + url.split('/')[-1]
             download_pdf(url, destination_path)
             destination_path = ensure_pdf_extension(destination_path)
         else:
