@@ -8,6 +8,7 @@ from langchain.vectorstores import Chroma
 
 # load all the pdfs in the data directory
 # type of loader is the UnstructuredPDFLoader
+print('Loading files...')
 loader = DirectoryLoader('data/txt', glob="**/*.txt", show_progress=True)
 
 # create a text splitter and chunk up the documents
@@ -22,14 +23,16 @@ docs = loader.load_and_split(text_splitter)
 num_docs = len(docs)
 print(f'Number of docs: {num_docs}')
 
-# Use Chroma to create the embdeddings and create the vector store
+# Use Chroma to create the embdeddings, create the vector store and save to disk
 load_dotenv()
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-db = Chroma.from_documents(docs, OpenAIEmbeddings())
+db = Chroma.from_documents(docs, OpenAIEmbeddings(), persist_directory="chroma_db")
+
 
 # test with a similarity search
-query = input("Query: ")
-similar_docs = db.similarity_search(query)
-similar_page_content = [similar_docs[i].page_content for i in range(len(similar_docs))]
-print(similar_docs)
+# query = input("Query: ")
+# similar_docs = db.similarity_search(query)
+# similar_page_content = [similar_docs[i].page_content for i in range(len(similar_docs))]
+# print(similar_docs)
+
 
