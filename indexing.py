@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 from langchain.document_loaders import DirectoryLoader
-from langchain.document_loaders import UnstructuredPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
@@ -9,7 +8,7 @@ from langchain.vectorstores import Chroma
 
 # load all the pdfs in the data directory
 # type of loader is the UnstructuredPDFLoader
-loader = DirectoryLoader('data', glob="**/*.pdf", loader_cls=UnstructuredPDFLoader, show_progress=True)
+loader = DirectoryLoader('data/txt', glob="**/*.txt", show_progress=True)
 
 # create a text splitter and chunk up the documents
 text_splitter = RecursiveCharacterTextSplitter(
