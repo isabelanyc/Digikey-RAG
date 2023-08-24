@@ -1,4 +1,3 @@
-
 import os
 from dotenv import load_dotenv
 from langchain.document_loaders import DirectoryLoader
@@ -34,5 +33,4 @@ query = input("Query: ")
 similar_docs = db.similarity_search(query)
 similar_page_content = [similar_docs[i].page_content for i in range(len(similar_docs))]
 print(similar_docs)
-
 
