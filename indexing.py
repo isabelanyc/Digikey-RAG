@@ -5,7 +5,6 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 
-
 # load all the pdfs in the data directory
 # type of loader is the UnstructuredPDFLoader
 print('Loading files...')
@@ -27,12 +26,3 @@ print(f'Number of docs: {num_docs}')
 load_dotenv()
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 db = Chroma.from_documents(docs, OpenAIEmbeddings(), persist_directory="chroma_db")
-
-
-# test with a similarity search
-# query = input("Query: ")
-# similar_docs = db.similarity_search(query)
-# similar_page_content = [similar_docs[i].page_content for i in range(len(similar_docs))]
-# print(similar_docs)
-
-
