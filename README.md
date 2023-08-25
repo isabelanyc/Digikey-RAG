@@ -1,5 +1,6 @@
 # Digikey-RAG
 _Under Development_
+Period project updates found [here](https://isabelanyc.github.io/projects/digikey/digikey-rag.html)
 
 ## Overview
 The Digikey RAG project aims to leverage the power of LLMs for easier search and queries of electronics parts found on Digikey.
