@@ -165,3 +165,6 @@ path
 
 # PDF files
 data/*
+
+# Chroma
+chroma_db
